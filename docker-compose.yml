@@ -1,0 +1,38 @@
+version: "3.7"
+
+volumes:
+  friss_data: {}
+
+services:
+
+  api:
+    image: friss-matcher
+    build:
+      context: .
+    user: friss
+    volumes:
+      - friss_data:/opt/friss-matcher/data
+    environment:
+      BASE_DIR: /opt/friss-matcher/data
+    command:
+      friss-matcher
+      manage
+      runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+
+  api-prod:
+    image: friss-matcher
+    build:
+      context: .
+    user: friss
+    volumes:
+      - friss_data:/opt/friss-matcher/data
+    environment:
+      BASE_DIR: /opt/friss-matcher/data
+    command: >
+      friss-matcher
+      api
+      --port 8000
+    ports:
+      - 8000:8000
