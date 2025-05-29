@@ -4,6 +4,8 @@ Takes information about two people and computes the probability that they are
 the same individual. Use first name, last name, date of birth, and ID number to
 apply matching logic and return a similarity score.
 
+---
+
 This exercise implements a `Python project` with the following features:
 
 * [Django REST framework](https://www.django-rest-framework.org/) as the framework for building the API
